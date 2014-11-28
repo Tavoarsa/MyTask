@@ -25,5 +25,5 @@ Route::post('register', 'UserController@register');
 Route::get('auth', 'UserController@isLogged');
 
 Route::group(array('before' => 'auth'), function () {
-	Route::get('restricted', 'HomeController@restricted');
+	Route::get('dashboard', 'HomeController@dashboard');
 });

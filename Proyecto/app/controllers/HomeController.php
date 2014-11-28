@@ -10,6 +10,7 @@ class HomeController extends BaseController {
     public function login()
     {
     	$this->layout->nest('content', 'login');
+        //return Redirect::to('home');
     }
 
     public function register()
@@ -17,8 +18,8 @@ class HomeController extends BaseController {
     	$this->layout->nest('content', 'register');
     }
 
-    public function restricted()
+    public function dashboard()
     {
-    	$this->layout->nest('content', 'restricted');
+    	$this->layout->nest('content', 'dashboard');
     }
 }

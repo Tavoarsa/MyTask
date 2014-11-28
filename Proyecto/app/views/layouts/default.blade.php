@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login App</title>
+  <title>My Task</title>
+  {{HTML::style('style/ccs.css');}}
 </head>
 <body>
-  <h2>Login App</h2>
+  <h2>My Task</h2>
   {{ $content }}
 </body>
 </html>
