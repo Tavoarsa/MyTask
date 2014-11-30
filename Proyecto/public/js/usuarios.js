@@ -1,10 +1,11 @@
 'use strict';
 
 $(document).ready(function() {
-	cargarCandidatos();
+	cargarUsuarios();
+	getId();
 	
 
- 	$('#insertar').click(function() {
+ 	/*$('#insertar').click(function() {
 
  		
  		var candidato_id = $("input[type='radio'][name='candidatos']:checked").attr('id');
@@ -28,36 +29,46 @@ $(document).ready(function() {
 
   	$('#resultados').click(function() {
   		
-  	});
+  	});*/
 });
 
-function cargarCandidatos()
+function cargarUsuarios()
 {
-  
-	if(localStorage.votacion === undefined) {
+
 
 		$.ajax({
-		      url: '/candidatos',
+		      url: '/usuario',
 		      type : 'GET'
 		    })
 		    .done(function(data) {
-		      console.log(data);
+		      console.log(data); 
+		      
+		      $('#usuario').append('<div class="usuario" type="text"  name="Usuario" id="">'+data+'</div>' +'<br>');		      	
 
-		      for(var i=0; i<data.length; i++){
-		      	$('#grid').append('<input class="candidatos" type="radio"  name="candidatos" id="'+data[i].id+'">'+data[i].nombre+'<br>');
-		      }
 		    }).fail(function() {
 				alert('error');
 			});
-	}
-	else{
-		gracias();
-	}
+	
+	
 }
 
-function gracias(){
-	$('#grid').empty();
-	$('#insertar').attr('disabled', 'disabled');
-  	$('#grid').append('<label> Gracias por votar </label>');
-  	window.location.replace("http://localhost:8000/resultados");
+function getId()
+{
+
+
+		$.ajax({
+		      url: '/id',
+		      type : 'GET'
+		    })
+		    .done(function(data) {
+		      console.log(data); 
+		      
+		      $('#id_user').append('<div class="usuario" type="text"  name="Usuario" id="'+data+'"></div>' +'<br>');		      	
+
+		    }).fail(function() {
+				alert('error');
+			});
+	
+	
 }
+

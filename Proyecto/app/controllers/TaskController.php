@@ -22,6 +22,20 @@ class TaskController extends \BaseController {
 	{
 		$this->layout->nest('content', 'create');
 	}
+	public function cargarUsuario()
+	{
+		$usuario = User::cargarUsuario();
+		return Response::json($usuario);
+	}
+	public function getId()
+	{
+		$id = User::getId();
+		return Response::json($id);
+	}
+
+	
+
+
 
 
 	/**

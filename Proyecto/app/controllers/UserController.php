@@ -28,11 +28,16 @@ class UserController extends BaseController
             'password'  => Input::get('password')
         );
 
-		if (Auth::attempt($userdata)) {
-                return Redirect::to('task');
+		if (Auth::attempt($userdata)) {         
+
+
+            return Redirect::to('task');
+             
+            
         }
 
         return Redirect::to('login')->withErrors(array('invalid_credentials' => 'Acceso Denegado'));
+       
     }
 
     public function register()

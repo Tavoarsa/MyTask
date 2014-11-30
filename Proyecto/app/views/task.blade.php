@@ -2,10 +2,8 @@
 
 
 
-<div="usuario">
-<h2>Usuario: </h2>
-
-
+<div class="container"  id="usuario">
+  <h2>Usuario: </h2>
 
 
 </div>

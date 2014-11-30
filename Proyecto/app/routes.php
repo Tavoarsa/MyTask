@@ -17,8 +17,6 @@ Route::get('login', 'HomeController@login');
 Route::get('register', 'HomeController@register');
 
 
-
-
 Route::get('logout', 'UserController@logout');
 
 
@@ -30,5 +28,12 @@ Route::group(array('before' => 'auth'), function () {
 	Route::resource('task', 'TaskController');
 	Route::resource('create', 'TaskController');//resourc = restful http
 	Route::get('task/create', array('as' => 'create', 'uses' => 'TaskController@create'));
+	Route::get('usuario','TaskController@cargarUsuario');
+	Route::get('id','TaskController@getId');
+	
+	
+
+	
+
 
 });

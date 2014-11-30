@@ -26,4 +26,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
   	protected $guarded    = array('id');
   	public    $timestamps = false;
 
+    public static function cargarUsuario()
+    {
+    	$email = Auth::user()->email;
+        return($email);
+    }
+     public static function getId()
+    {
+    	$id = Auth::id();
+        return($id);
+    }
+            
+
 }
