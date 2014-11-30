@@ -18,8 +18,5 @@ class HomeController extends BaseController {
     	$this->layout->nest('content', 'register');
     }
 
-    public function dashboard()
-    {
-    	$this->layout->nest('content', 'dashboard');
-    }
+   
 }

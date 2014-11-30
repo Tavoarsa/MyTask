@@ -1,10 +1,22 @@
-
-#tabla  td{
-
-
+table {
     border: 1px solid black;
-    border-collapse: collapse;
-   
-    width:100%
+    width: 100%;
+}
 
+td {
+    
+     border: 1px solid black;
+}
+
+#campo{
+	height: 500px; 
+	border: 1px solid black;
+}
+
+#nuevaTarea{
+
+	position: fixed;
+    top: 30px;
+    right: 5px;
+    color: red;
 }

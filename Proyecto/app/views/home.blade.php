@@ -5,4 +5,4 @@
 @endif
 
 {{HTML::link('register', 'Registro');}}
-{{HTML::link('dashboard', 'Dashboard');}}
+

@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>My Task</title>
+  {{HTML::script('js/jquery.js');}} 
   {{HTML::style('style/ccs.css');}}
 </head>
 <body>

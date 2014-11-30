@@ -29,7 +29,7 @@ class UserController extends BaseController
         );
 
 		if (Auth::attempt($userdata)) {
-                return Redirect::to('home');
+                return Redirect::to('task');
         }
 
         return Redirect::to('login')->withErrors(array('invalid_credentials' => 'Acceso Denegado'));
