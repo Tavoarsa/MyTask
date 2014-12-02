@@ -9,7 +9,18 @@ class TaskController extends \BaseController {
 	 */
 	public function index()
 	{
-		$this->layout->nest('content', 'task');
+
+		if (Request::ajax())		
+		{			
+    		$task = Task::mostrarUsuarios();
+    		return Response::Json($task);
+		}
+		$this->layout->title = 'Task';
+		$this->layout->nest(
+			'content',
+			'task'
+		);
+		//$this->layout->nest('content', 'task');
 	}
 
 
@@ -33,11 +44,6 @@ class TaskController extends \BaseController {
 		return Response::json($id);
 	}
 
-	
-
-
-
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -45,7 +51,28 @@ class TaskController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+
+		$id_users = Auth::id();	
+		$titulo= Input::get('titulo');
+		$prioridad=Input::get('prioridad');	
+		$descripcion=Input::get('descripcion');
+		$descripcion=Input::get('estado');
+
+		$task = new Task(); 		
+		
+		$task->id_users = $id_users;
+		$task->titulo = $titulo;
+		$task->prioridad = $prioridad;
+		$task->descripcion = $descripcion;
+		$task->estado = 1;
+		$task->save();
+		if (!Request::ajax())
+		{
+    		return Redirect::to('task');	
+		}
+		/*return Response::Json(array('msg' => 'transaccion exitosa'));;*/
+		
+		
 	}
 
 

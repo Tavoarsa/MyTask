@@ -8,11 +8,7 @@
 
 </div>
 <div id="nuevaTarea"> 
-
   {{ link_to_route('create', 'Nueva Tarea', null, array('class' => 'btn btn-default')) }}
-
-
-
 </div>
 
 
@@ -24,11 +20,22 @@
     <td>En Progreso</td>		
     <td>Terminada</td>
     <td>Verificada</td>
+
   </tr>
-  <tr>
-    <td id= "campo">Hola</td>
-    <td></td>		
-    <td></td>
-    <td></td>
-  </tr>  
+    
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        cargar_tabla();
+        
+    });
+
+    function cargar_tabla() {
+        $.getJSON('tabla', function(json, textStatus) {
+
+          console.log(json);
+        
+
+    }
+</script>

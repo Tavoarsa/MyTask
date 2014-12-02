@@ -62,7 +62,7 @@ class UserController extends BaseController
         $user->password = Hash::make($password);
         $user->save();
         Auth::attempt(array('email' => $email, 'password' => $password));
-        return Redirect::to('home');
+        return Redirect::to('task');
     }
 
     public function isLogged()

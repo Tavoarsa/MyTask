@@ -20,3 +20,8 @@ td {
     right: 5px;
     color: red;
 }
+
+.usuarios{
+
+	  visibility: hidden;
+}

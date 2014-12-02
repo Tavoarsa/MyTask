@@ -4,14 +4,25 @@
 
 </div>
 
-{{ Form::label('titulo', 'Titulo') }}
-{{ Form::text('titulo', '') }}
+
+
+
+{{ Form::open(array('url' => 'create')) }}
+
+	{{ Form::label('titulo', 'Titulo') }}
+	{{ Form::text('titulo', '') }}
 <br>
-{{ Form::label('priorida', 'Priorida') }}
-{{ Form::select('priorida', array('Priorida' => array('baja' => 'Baja','normal' => 'Normal','alta' => 'Alta')));}}
+	{{ Form::label('prioridad', 'Prioridad') }}
+
+	{{ Form::select('prioridad', array('Prioridad' => array('baja' => 'Baja','normal' => 'Normal','alta' => 'Alta')));}}
 <br>
-{{ Form::label('descripcion', 'Descripcion') }}
+	{{ Form::label('descripcion', 'Descripcion') }}
 <br>
-{{ Form::textarea('descripcion', '') }}
+	{{ Form::textarea('descripcion', '') }}
 <br>
-{{Form::button('Salvar', array('id' => 'salvar'))}}
+
+<br> 
+
+	{{Form::submit('Salvar', array())}}
+
+{{ Form::close() }}
