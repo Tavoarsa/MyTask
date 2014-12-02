@@ -34,6 +34,8 @@ Route::group(array('before' => 'auth'), function () {
 	Route::get('usuario','TaskController@cargarUsuario');
 	Route::get('id','TaskController@getId');
 	Route::get('store','TaskController@store');
+	Route::get('index','TaskController@index');
+	Route::post('task/{id}/update','TaskController@update');
 	
 	
 

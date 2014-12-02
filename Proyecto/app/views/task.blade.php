@@ -22,6 +22,30 @@
     <td>Verificada</td>
 
   </tr>
+
+  <tr>
+      <td class="tavo" >
+            <div id="nueva"></div>
+      </td>
+
+      <td class="tavo" >
+            <div id= "progreso" >
+            </div>
+
+      </td>
+
+      <td class="tavo" >
+            <div id= "terminada">
+            </div>
+      </td>
+
+      <td class="tavo">
+            <div  id= "verificada">
+            </div>
+      </td>
+
+  </tr>
+
     
 </table>
 
@@ -31,10 +55,53 @@
         
     });
 
-    function cargar_tabla() {
-        $.getJSON('tabla', function(json, textStatus) {
 
-          console.log(json);
+    function cargar_tabla() {
+
+       $.ajax({
+          url: '/index',
+          type : 'GET'
+        })
+        .done(function(data) {
+          console.log(data);
+          alert('data');
+
+          for(var i=0; i<data.length; i++){
+
+            if( data[i].estado==1)
+            {
+              $('#nueva').append('<li id = "' + data[i].id +'" > <a href="task/' + data[i].id + '/edit">Editar</a> '+ data[i].descripcion+ '</li>');
+
+            }
+             if( data[i].estado==2)
+            {
+              $('#progreso').append('<li id = "' + data[i].id +'" > '+ data[i].descripcion+ '</li>');
+
+            }
+              if( data[i].estado==3)
+            {
+              $('#terminada').append('<li id = "' + data[i].id +'" > '+ data[i].descripcion+ '</li>');
+
+            }
+
+             if( data[i].estado==4)
+            {
+              $('#verificada').append('<li id = "' + data[i].id +'" > '+ data[i].descripcion+ '</li>');
+
+            }
+
+            
+
+
+          }
+          
+          
+
+        }).fail(function() {
+        alert('error');
+      });
+
+
         
 
     }

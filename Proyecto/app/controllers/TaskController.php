@@ -2,6 +2,8 @@
 
 class TaskController extends \BaseController {
 
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -10,12 +12,14 @@ class TaskController extends \BaseController {
 	public function index()
 	{
 
+		
+
 		if (Request::ajax())		
-		{			
-    		$task = Task::mostrarUsuarios();
-    		return Response::Json($task);
+		{
+		$task = Task::mostrarUsuarios(Auth::id());
+    	return Response::Json($task);			
+    		
 		}
-		$this->layout->title = 'Task';
 		$this->layout->nest(
 			'content',
 			'task'
@@ -56,7 +60,7 @@ class TaskController extends \BaseController {
 		$titulo= Input::get('titulo');
 		$prioridad=Input::get('prioridad');	
 		$descripcion=Input::get('descripcion');
-		$descripcion=Input::get('estado');
+		$estado=Input::get('estado');
 
 		$task = new Task(); 		
 		
@@ -96,7 +100,18 @@ class TaskController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		
+	 
+
+		$task = Task::find($id);
+		$this->layout->nest(
+			'content',
+			'edit',
+			array(
+				'task' => $task
+			)
+		);
+		
 	}
 
 
@@ -108,7 +123,21 @@ class TaskController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$titulo= Input::get('titulo');
+		$prioridad=Input::get('prioridad');	
+		$descripcion=Input::get('descripcion');
+		$estado = Input::get('estado');
+		$task = new Task(); 
+		$id_users = Auth::id();
+			$task->id_users = $id_users;
+			$task->titulo = $titulo;
+			$task->prioridad = $prioridad;
+			$task->descripcion = $descripcion;
+			$task->estado = $estado ;	
+			$task->save();
+			return Redirect::to('task');
+				
+		
 	}
 
 
