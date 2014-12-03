@@ -127,17 +127,47 @@ class TaskController extends \BaseController {
 		$prioridad=Input::get('prioridad');	
 		$descripcion=Input::get('descripcion');
 		$estado = Input::get('estado');
-		$task = new Task(); 
-		$id_users = Auth::id();
-			$task->id_users = $id_users;
+
+		$task = Task::find($id);
+		$id_user= Auth::id();
+
+		if ($task->id_users == $id_user){
+
+			
 			$task->titulo = $titulo;
 			$task->prioridad = $prioridad;
 			$task->descripcion = $descripcion;
 			$task->estado = $estado ;	
 			$task->save();
 			return Redirect::to('task');
+
+
+
+		}
+		
+
 				
 		
+	}
+
+	public function eliminar($id){
+
+
+
+		$task = Task::find($id);
+		$this->layout->nest(
+			'content',
+			'eliminar',
+			array(
+				'task' => $task
+
+			)
+
+		);
+
+		
+
+
 	}
 
 
@@ -149,7 +179,9 @@ class TaskController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$task = Task::find($id);
+		$task->delete();
+		return Redirect::to('task');
 	}
 
 

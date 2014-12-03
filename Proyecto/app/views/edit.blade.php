@@ -1,6 +1,6 @@
 <h3>Edit Task</h3>
 
-{{ Form::open(array('url' => 'task/$task->id/update')) }}
+{{ Form::open(array('url' => "task/$task->id/update")) }}
 
 	{{ Form::label('titulo', 'Titulo') }}
 	{{ Form::text('titulo', $task->titulo) }}

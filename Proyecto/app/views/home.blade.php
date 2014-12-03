@@ -5,4 +5,6 @@
 @endif
 
 {{HTML::link('register', 'Registro');}}
+{{HTML::link('task', 'Dasboard');}}
+
 

@@ -10,7 +10,7 @@ class HomeController extends BaseController {
     public function login()
     {
     	$this->layout->nest('content', 'login');
-        //return Redirect::to('home');
+      
     }
 
     public function register()

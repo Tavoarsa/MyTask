@@ -52,9 +52,16 @@
 <script type="text/javascript">
     $(document).ready(function() {
         cargar_tabla();
+       
+        
         
     });
 
+
+   
+
+  
+   
 
     function cargar_tabla() {
 
@@ -70,23 +77,24 @@
 
             if( data[i].estado==1)
             {
-              $('#nueva').append('<li id = "' + data[i].id +'" > <a href="task/' + data[i].id + '/edit">Editar</a> '+ data[i].descripcion+ '</li>');
+              $('#nueva').append('<li id = "' + data[i].id +'" ><a href="task/' + data[i].id + '/elimina">Elininar</a>' +' <a href="task/' + data[i].id + '/edit">Editar</a> '+ data[i].descripcion+ '</li>');
 
             }
              if( data[i].estado==2)
             {
-              $('#progreso').append('<li id = "' + data[i].id +'" > '+ data[i].descripcion+ '</li>');
+              $('#progreso').append('<li id = "' + data[i].id +'" ><a href="task/' + data[i].id + '/elimina">Elininar</a>' + '<a href="task/' + data[i].id + '/edit">Editar</a> '+ data[i].descripcion+ '</li>');
 
             }
               if( data[i].estado==3)
             {
-              $('#terminada').append('<li id = "' + data[i].id +'" > '+ data[i].descripcion+ '</li>');
+              $('#terminada').append('<li id = "' + data[i].id +'" ><a href="task/' + data[i].id + '/elimina">Elininar</a>' +' <a href="task/' + data[i].id + '/edit">Editar</a>'+ data[i].descripcion+ '</li>');
 
             }
 
              if( data[i].estado==4)
             {
-              $('#verificada').append('<li id = "' + data[i].id +'" > '+ data[i].descripcion+ '</li>');
+              $('#verificada').append('<li id = "' + data[i].id +'" > <a "id= "delete" href="task/' + data[i].id + '/elimina">Elininar</a>' + '<a href="task/' + data[i].id + '/edit">Editar</a>'+ data[i].descripcion+ '</li>');
+              // $('#verificada').append('<li id = "' + data[i].id +'" > <input type="button" onclick="eliminar()" value="Delete Gallery">' + '<a href="task/' + data[i].id + '/edit">Editar</a>'+ data[i].descripcion+ '</li>');
 
             }
 
@@ -105,4 +113,6 @@
         
 
     }
+
+
 </script>

@@ -9,6 +9,10 @@
   
 </head>
 <body>
+	@if (Auth::check())
+  {{HTML::link('logout', 'Logout')}}
+
+@endif
   <h2>My Task</h2>
   {{ $content }}
 </body>

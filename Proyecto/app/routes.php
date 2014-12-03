@@ -36,6 +36,10 @@ Route::group(array('before' => 'auth'), function () {
 	Route::get('store','TaskController@store');
 	Route::get('index','TaskController@index');
 	Route::post('task/{id}/update','TaskController@update');
+	Route::post('task/{id}/delete', 'TaskController@destroy');
+	Route::get('task/{id}/elimina', 'TaskController@eliminar');
+	
+
 	
 	
 
